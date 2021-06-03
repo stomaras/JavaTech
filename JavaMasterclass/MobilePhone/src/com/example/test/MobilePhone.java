@@ -84,9 +84,10 @@ public class MobilePhone {
     ////////////////////////////////////////////////////////
 
     // 5. Query Contact
-    public String queryContact(Contact contact){
-        if (findContact(contact) >= 0){
-            return contact.getName();
+    public Contact queryContact(String name){
+        int position = findContact(name);
+        if (position >= 0){
+            return this.myContacts.get(position);
         }
         return null;
     }

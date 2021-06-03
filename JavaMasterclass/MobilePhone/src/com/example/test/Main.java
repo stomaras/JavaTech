@@ -67,7 +67,7 @@ public class Main {
                     addNewContact();
                     break;
                 case 3:
-                    //updateContact();
+                    updateContact();
                     break;
                 case 4:
                     //removeContact();
@@ -99,6 +99,26 @@ public class Main {
             System.out.println("New contact added: name = " + name + ", phone = " +phone);
         }else {
             System.out.println("Cannot add, " + name + " already on file ");
+        }
+    }
+
+    private static void updateContact(){
+        System.out.println("Enter  contact name: ");
+        String name = sc.nextLine();
+        System.out.println("Enter  contact phone: ");
+        String phone = sc.nextLine();
+        Contact newContact = new Contact(name, phone);
+        Contact existingContact = mobilePhone.queryContact(name);
+        if( existingContact!= null){
+            System.out.println("Enter new contact name: ");
+            String newName = sc.nextLine();
+            System.out.println("Enter new contact phone number: ");
+            String newNumber = sc.nextLine();
+            Contact contact = Contact.createContact(newName, newNumber);
+            mobilePhone.updateContact(existingContact, contact);
+        } else {
+            System.out.println("Contact not found");
+            return;
         }
     }
 
