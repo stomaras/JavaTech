@@ -54,7 +54,6 @@ public class MobilePhone {
             return false;
         } else {
             myContacts.remove(position);
-            System.out.println("Contact removed successfully!");
             return true;
         }
     }

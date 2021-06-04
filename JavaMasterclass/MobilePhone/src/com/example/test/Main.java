@@ -1,5 +1,6 @@
 package com.example.test;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 //Create a program that implements a simple mobile phone with the following capabilities.
@@ -70,10 +71,10 @@ public class Main {
                     updateContact();
                     break;
                 case 4:
-                    //removeContact();
+                    removeContact();
                     break;
                 case 5:
-                    //queryContact();
+                    queryContact();
                     break;
                 case 6:
                     printActions();
@@ -122,6 +123,32 @@ public class Main {
         }
     }
 
+    private static void removeContact(){
+        System.out.println("Enter contact name: ");
+        String name = sc.nextLine();
+        System.out.println("Enter contact phone: ");
+        String phone = sc.nextLine();
+        Contact contact = new Contact(name, phone);
+        Contact existingContact = mobilePhone.queryContact(name);
+        if (existingContact != null){
+            mobilePhone.removeContact(existingContact);
+            System.out.println("Contact removed successfully!");
+        } else {
+            System.out.println("Contact not found");
+            return;
+        }
+    }
+
+    private static void queryContact(){
+        System.out.println("Enter contact name: " );
+        String name = sc.nextLine();
+        Contact searchingContact = mobilePhone.queryContact(name);
+        if (searchingContact != null){
+           String namee = searchingContact.getName();
+            System.out.println("Contact with name : " + namee + " removed successfully!");
+           mobilePhone.removeContact(searchingContact);
+        }
+    }
 
     private static void startPhone() {
         System.out.println("Starting phone...");
