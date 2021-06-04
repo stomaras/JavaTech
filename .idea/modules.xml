@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/AutoboxingAndUnboxing/AutoboxingAndUnboxing.iml" filepath="$PROJECT_DIR$/JavaMasterclass/AutoboxingAndUnboxing/AutoboxingAndUnboxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/BankingApplication/BankingApplication.iml" filepath="$PROJECT_DIR$/JavaMasterclass/BankingApplication/BankingApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/Composition/Composition.iml" filepath="$PROJECT_DIR$/JavaMasterclass/Composition/Composition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/CompositionChallenge/CompositionChallenge.iml" filepath="$PROJECT_DIR$/JavaMasterclass/CompositionChallenge/CompositionChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/Encapsulation/Encapsulation.iml" filepath="$PROJECT_DIR$/JavaMasterclass/Encapsulation/Encapsulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaTech.iml" filepath="$PROJECT_DIR$/.idea/JavaTech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/ListAndArrayList/ListAndArrayList.iml" filepath="$PROJECT_DIR$/JavaMasterclass/ListAndArrayList/ListAndArrayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/MobilePhone/MobilePhone.iml" filepath="$PROJECT_DIR$/JavaMasterclass/MobilePhone/MobilePhone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/Polymorphism/Polymorphism.iml" filepath="$PROJECT_DIR$/JavaMasterclass/Polymorphism/Polymorphism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaMasterclass/PolymorphismChallenge/PolymorphismChallenge.iml" filepath="$PROJECT_DIR$/JavaMasterclass/PolymorphismChallenge/PolymorphismChallenge.iml" />
+    </modules>
+  </component>
+</project>
