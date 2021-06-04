@@ -1,4 +1,4 @@
 package com.example.test;
 
-public class Bank s{
+public class Bank {
 }
