@@ -25,5 +25,9 @@ public class Main {
         // Add data validation
         // e.g. check if exists, or does not exist, etc.
         // Think about where you are adding the code to perform certain actions.
+        Customer customer = new Customer("Tom");
+        customer.addTransaction(20.0);
+        customer.addTransaction(10.0);
+        customer.getTransactions();
     }
 }

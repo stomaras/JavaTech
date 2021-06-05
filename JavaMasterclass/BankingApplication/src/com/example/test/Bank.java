@@ -24,6 +24,27 @@ public class Bank {
         this.branches = new ArrayList<Branch>();
     }
 
+    public boolean addBranch(String nameOfBranch) {
+        Branch newBranch = new Branch(nameOfBranch);
+        if (findBranch(nameOfBranch) == null) {
+            branches.add(newBranch);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addCustomer(String nameOfBranch, String nameOfCustomer, double initialTransaction) {
+        Customer newCustomer = new Customer(nameOfCustomer);
+        Branch branch = new Branch(nameOfBranch);
+        if (branch.findCustomer(nameOfCustomer) != null){
+
+            return true;
+        }
+        return false;
+    }
+
+
+
     public Branch findBranch(String nameOfBranch) {
         Branch branch = new Branch(nameOfBranch);
         int index = branches.indexOf(branch);
@@ -32,6 +53,8 @@ public class Bank {
         }
         return null;
     }
+
+
 
 
 }
