@@ -3,14 +3,26 @@ package com.company;
 public class MobilePhone implements ITelephone{
     private int myNumber;
     private boolean isRinging;
+    private boolean isOn = false;
+
+    public MobilePhone(int myNumber, boolean isRinging, boolean isOn) {
+        this.myNumber = myNumber;
+    }
+
     @Override
     public void powerOn() {
         System.out.println("Press enter button to power on...");
+        isOn = true;
     }
 
     @Override
     public void dial(int phoneNumber) {
-        System.out.println("Now ringing " + phoneNumber + " on mobile ");
+        if (isOn){
+            System.out.println("Now ringing ");
+        }else{
+            System.out.println("Phone is switched off");
+        }
+
     }
 
     @Override
@@ -23,7 +35,7 @@ public class MobilePhone implements ITelephone{
 
     @Override
     public boolean callPhone(int phoneNumber) {
-        if (phoneNumber == myNumber){
+        if (phoneNumber == myNumber && isOn){
             isRinging = true;
             return isRinging;
         } else {
