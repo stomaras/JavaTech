@@ -62,11 +62,21 @@ public class Main {
         LinkedList<Song> playList = new LinkedList<Song>();
         albums.get(0).addToPlayList("MockingBird", playList);
         albums.get(0).addToPlayList("Lose Yourself", playList);
+        albums.get(0).addToPlayList("I am not afraid", playList);
         ListIterator<Song> list= playList.listIterator();
         while (list.hasNext()){
-            System.out.println("Play : "
-                    + list.next() + " from album: " + albums.get(0).getName());
+            System.out.println(
+                    list.next() + " from album: " + albums.get(0).getName());
         }
 
+        LinkedList<Song> playList1 = new LinkedList<Song>();
+        albums.get(1).addToPlayList("Wind Of Change", playList1);
+        albums.get(1).addToPlayList("No one like you", playList1);
+        albums.get(1).addToPlayList("Rock you like a huriccance", playList1);
+        ListIterator<Song> list1= playList1.listIterator();
+        while (list1.hasNext()){
+            System.out.println(
+                    list1.next() + " from album: " + albums.get(1).getName());
+        }
     }
 }

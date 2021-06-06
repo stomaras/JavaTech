@@ -49,6 +49,15 @@ public class Album {
         return false;
     }
 
+    public boolean addToPlayList(int trackNumber, LinkedList<Song> playList) {
+        int index = trackNumber - 1;
+        if ((index > 0) && (index <= playList.size())){
+            playList.add(this.songs.get(index));
+            return true;
+        }
+        return false;
+    }
+
     private Song findSong(String titleOfSong) {
         for (Song song: this.songs){
             if (song.getTitle().equals(titleOfSong)){
