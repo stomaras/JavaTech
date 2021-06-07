@@ -66,37 +66,12 @@ public class Player implements ISaveable{
 
     @Override
     public List<String> write() {
-        //List<String> list = new ArrayList<String>();// List<String> list = new ArrayList<>();
-        List<String> list = new ArrayList<String>();
-        System.out.println("Enter a player name: \n" );
-        String playerName = scanner.nextLine();
-        list.add(0,playerName);
-        System.out.println("Enter player hit points: \n ");
-        int playerHitPoints =  scanner.nextInt();
-        list.add(1,"" + playerHitPoints);
-        System.out.println("Enter player strength: \n");
-        int playerStrength = scanner.nextInt();
-        list.add(2,"" + playerStrength);
-        return list;
-        //list.add(0,"Yu-gi-oh");
-        //list.add(1,"Dark-Magician");
-        //list.add(2,"" + 2000);
-        //list.add(3,"" + 2500);
+        return null;
     }
 
     @Override
-    public void read(List<String> list) {
+    public void read(List<String> savedValues) {
 
-        if ((list != null) && (list.size() > 0)){
-            this.name = list.get(0);
-            this.hitPoints = Integer.parseInt(list.get(1));
-            this.strength = Integer.parseInt(list.get(2));
-        }
-        //if ((list != null) && (list.size() > 0)){
-        //    this.name = list.get(0);
-        //    this.weapon = list.get(1);
-        //    this.hitPoints = Integer.parseInt(list.get(2));
-        //    this.strength = Integer.parseInt(list.get(3));
-        //}
     }
 }
+

@@ -34,35 +34,13 @@ public class Monster implements ISaveable{
 
     @Override
     public List<String> write() {
-        List<String> list = new ArrayList<String>();
-        System.out.println("Enter a monster name: \n" );
-        String monsterName = scanner.nextLine();
-        list.add(0,monsterName);
-        System.out.println("Enter monster hit points: \n ");
-        int monsterHitPoints =  scanner.nextInt();
-        list.add(1,"" + monsterHitPoints);
-        System.out.println("Enter monster strength: \n");
-        int monsterStrength = scanner.nextInt();
-        list.add(2,"" + monsterStrength);
-
-    return list;
+        return  null;
     }
 
-    @Override
-    public void read(List<String> list) {
-        if ((list != null) && (list.size() > 0)){
-            this.name = list.get(0);
-            this.hitPoints = Integer.parseInt(list.get(1));
-            this.strength = Integer.parseInt(list.get(2));
-        }
-    }
+
 
     @Override
-    public String toString() {
-        return "Monster{" +
-                "name='" + name + '\'' +
-                ", hitPoints=" + hitPoints +
-                ", strength=" + strength +
-                '}';
+    public void read(List<String> savedValues) {
+
     }
 }
