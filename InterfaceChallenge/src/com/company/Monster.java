@@ -34,7 +34,11 @@ public class Monster implements ISaveable{
 
     @Override
     public List<String> write() {
-        return  null;
+        List<String> values = new ArrayList<>();
+        values.add(0,this.name);
+        values.add(1,"" + this.hitPoints);
+        values.add(2,"" + this.strength);
+        return values;
     }
 
 
