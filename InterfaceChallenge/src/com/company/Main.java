@@ -35,5 +35,6 @@ public class Main {
         //     Make sure the List is not null and the size() is greater than 0 before storing the values.
         //   - toString(), Monsters() overriding toString() method. It takes no arguments and returns a String
         //     in the following format: Monster{name="Werewolf", hitPoints=20, strength=40}.
+
     }
 }
