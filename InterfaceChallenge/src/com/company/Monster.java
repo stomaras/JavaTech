@@ -2,12 +2,17 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Monster implements ISaveable{
 
     private String name;
     private int hitPoints;
     private int strength;
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static List<String> monsters = new ArrayList<String>();
+    public Monster(){};
 
     public Monster(String name, int hitPoints, int strength) {
         this.name = name;
@@ -29,11 +34,18 @@ public class Monster implements ISaveable{
 
     @Override
     public List<String> write() {
-        List<String> list = new ArrayList<>();
-        list.add(0,"White Dragon With Blue Eyes");
-        list.add(1, " " + 2000);
-        list.add(2,"" + 3000);
-        return list;
+        List<String> list = new ArrayList<String>();
+        System.out.println("Enter a monster name: \n" );
+        String monsterName = scanner.nextLine();
+        list.add(0,monsterName);
+        System.out.println("Enter monster hit points: \n ");
+        int monsterHitPoints =  scanner.nextInt();
+        list.add(1,"" + monsterHitPoints);
+        System.out.println("Enter monster strength: \n");
+        int monsterStrength = scanner.nextInt();
+        list.add(2,"" + monsterStrength);
+
+    return list;
     }
 
     @Override
