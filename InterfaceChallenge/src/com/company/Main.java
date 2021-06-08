@@ -9,6 +9,14 @@ public class Main {
     public static void main(String[] args) {
         Player player = new Player("Tom", 20, 20);
         System.out.println(player.toString());
+        saveObject(player);
+
+        player.setHitPoints(9);
+        System.out.println(player);
+        player.setWeapon("Stormbringer");
+        saveObject(player);
+        loadObject(player);
+        System.out.println(player);
     }
 
     public static ArrayList<String> readValues(){
