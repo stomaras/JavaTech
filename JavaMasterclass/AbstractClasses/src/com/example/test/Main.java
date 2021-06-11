@@ -60,7 +60,18 @@ public class Main {
         //   Whereas the methods of an abstract class can have any visibility.
         //   Private, Protected, etcetera. Abstarct classes can have defined methods
         //   methods with an implementation. Whereas all methods in an interface are abstract.
-        //   
+        //   An Interface primary purposes is abstraction, decoupling the "what" from
+        //   the "how".
+        //   USE an interface when...
+        //   - You expect that unrelated classes will implement your interface.For example, the interfaces
+        //     Comparable and Cloneable are implemented by many unrelated classes.
+        //   - You want to specify the behavior of a particular data type, but you are not concerned about who
+        //     implements its behavior.
+        //   - You want to seperate different behavior.
+        //   - The Collections API is an excellent example, we have the List interface and implementations ArrayList and
+        //     LinkedList(more on that later in the course)
+        //   - The JDBC API is another excellent example.It exist of almost only interfaces. The concrete implementations are provided as "JDBC drivers".
+        //     This enables you to write all the JDBC code independent of the database vendor. 
 
 
     }
