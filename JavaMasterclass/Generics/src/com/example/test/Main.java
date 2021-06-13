@@ -26,7 +26,7 @@ public class Main {
         chicago_cubs.addPlayer(pat);
 
         adelaideCrows.matchResult(adelaideNY, 0, 1);
-
+        System.out.println(adelaideCrows.compareTo(adelaideNY));
         // !!! Note !!!
         // There are some problems here and at the moment the type parameter
         // T, in our team class can be applied, or can be supplied rather, any type,
