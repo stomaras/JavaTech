@@ -14,24 +14,24 @@ public class Main {
         // Only teams of the same type should be added to any particular
         // instance of the league class - the program should fail tp compile
         // if an attempt is made to add an incompatible team.
-        FootballPlayer christiano = new FootballPlayer("Christiano Ronaldo");
-        FootballPlayer ramos = new FootballPlayer("Sergio Ramos");
-        Team<FootballPlayer> real = new Team<FootballPlayer>("Real Madrid");
-        real.addPlayer(christiano);
-        real.addPlayer(ramos);
 
-        FootballPlayer messi = new FootballPlayer("Lionel Messi");
-        FootballPlayer neymar = new FootballPlayer("Neymar JR");
-        Team<FootballPlayer> barcelona = new Team<FootballPlayer>("Barcelona");
-        barcelona.addPlayer(messi);
-        barcelona.addPlayer(neymar);
+        // Your class should have a method to print out the teams in order.
+        // And the team at the top of the league should be printed first.
+        //
 
-        barcelona.matchResults(real, 5, 2);
-        real.matchResults(barcelona, 4, 2);
-        System.out.println(barcelona.getName() + " victories are: " + barcelona.getVictories());
-        System.out.println(barcelona.getName() + " Ranking is: " + barcelona.ranking());
-        System.out.println(real.getName() + " victories are: " + real.getVictories());
-        System.out.println(real.getName() + " Ranking is: " + real.getVictories());
+        League<Team<FootballPlayer>> footballLeague = new League<>("AFL");
+        Team<FootballPlayer> Barcelona = new Team<>("Barcelona");
+        Team<FootballPlayer> RealMadrid = new Team<>("Real Madrid");
+        Team<FootballPlayer> Juventus = new Team<>("Juventus");
+
+        Team<BasketballPlayer> Panathinaikos = new Team<>("Panathinaikos");
+
+        footballLeague.add(Barcelona);
+        footballLeague.add(RealMadrid);
+        footballLeague.add(Juventus);
+        
+        footballLeague.showLeagueTable();
+
 
 
 
