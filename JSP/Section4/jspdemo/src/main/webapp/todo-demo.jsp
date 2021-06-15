@@ -27,7 +27,7 @@ Item entered: <%= request.getParameter("theItem") %>
 	
 	// see if there is form data to add
 	String theItem = request.getParameter("theItem");
-	if(theItem != null){
+	if((theItem != null)&&(!theItem.trim().equals(""))){
 		items.add(theItem);
 	}
 
