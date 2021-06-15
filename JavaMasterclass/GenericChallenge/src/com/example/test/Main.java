@@ -29,7 +29,12 @@ public class Main {
         footballLeague.add(Barcelona);
         footballLeague.add(RealMadrid);
         footballLeague.add(Juventus);
-        
+
+        Barcelona.matchResults(RealMadrid, 4, 2);
+        Barcelona.matchResults(Juventus, 2, 1);
+        RealMadrid.matchResults(Barcelona, 2, 1);
+
+
         footballLeague.showLeagueTable();
 
 
