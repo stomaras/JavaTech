@@ -27,8 +27,14 @@ Item entered: <%= request.getParameter("theItem") %>
 	
 	// see if there is form data to add
 	String theItem = request.getParameter("theItem");
-	if((theItem != null)&&(!theItem.trim().equals(""))){
-		items.add(theItem);
+	
+	//
+	// UPDATED CODE BLOCK FOR booleans and if/then statement
+	// 
+	boolean isItemNotEmpty = theItem != null && theItem.trim().length() > 0;
+	boolean isItemNotDuplicate = theItem != null && !items.contains(theItem.trim());
+	if(isItemNotEmpty && isItemNotDuplicate) {
+		items.add(theItem.trim());
 	}
 
 %>
@@ -45,12 +51,6 @@ Item entered: <%= request.getParameter("theItem") %>
 </ol>
 
 
-
-
-
 </body>
-
-
-
 
 </html>
