@@ -5,8 +5,9 @@ import java.util.List;
 
 public class Theatre {
     // I will start by creating a list for the seats.
+    // We can change a List to a Collection.
     private final String theatreName;
-    private List<Seat> seats = new ArrayList<Seat>();
+    public List<Seat> seats = new ArrayList<>();
 
 
 
@@ -27,20 +28,33 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber) {
-        Seat requestedSeat = null;
-        for (Seat seat : seats) {
-            if (seat.getSeatNumber().equals(seatNumber)) {
-                requestedSeat = seat;
-                break;
-            }
-        }
+        // So that's going to give us the object for comparison purposes,
+        // With binary Search 1,048,576 items can be checked in no more than
+        // 20 comparisons.
+        // Just to recap that a binary search relies on the list that you are searching,
+        // being sorted.
 
-        if (requestedSeat == null) {
+        Seat requestedSeat = new Seat(seatNumber);
+        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+        if (foundSeat >= 0) {
+            return seats.get(foundSeat).reserve();
+        } else {
             System.out.println("There is no seat " + seatNumber);
             return false;
         }
-
-        return requestedSeat.reserve();
+//        for (Seat seat : seats) {
+//            if (seat.getSeatNumber().equals(seatNumber)) {
+//                requestedSeat = seat;
+//                break;
+//            }
+//        }
+//
+//        if (requestedSeat == null) {
+//            System.out.println("There is no seat " + seatNumber);
+//            return false;
+//        }
+//
+//        return requestedSeat.reserve();
     }
 
     public void getSeats() {
@@ -48,14 +62,20 @@ public class Theatre {
             System.out.println(seat.getSeatNumber());
         }
     }
-}
 
-class Seat {
+
+
+class Seat implements Comparable<Seat>{
     private final String seatNumber;
     private boolean reserved = false;
 
     public Seat(String seatNumber) {
         this.seatNumber = seatNumber;
+    }
+
+    @Override
+    public int compareTo(Seat seat) {
+        return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
     }
 
     public boolean reserve() {
@@ -83,4 +103,5 @@ class Seat {
     }
 
 
+}
 }
