@@ -1,6 +1,7 @@
 package com.example.test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -28,6 +29,23 @@ public class Main {
         } else {
             System.out.println("Seat already reserved");
         }
+
+        Collections.shuffle(seatCopy);
+        System.out.println("Printing seatCopy");
+        printList(seatCopy);
+        System.out.println("Printing theatre.seat");
+        printList(theatre.seats);
+        // There is also a shuffle method in the collections class and that shuffles the elements of the list in
+        // a random or sort of a pseudo-random order.  That's a good way of pseudo randomization.
+        // shuffle method is part of the collections framework.
+
+        Theatre.Seat minSeat = Collections.min(seatCopy);
+        System.out.println("Min seat number is " + minSeat.getSeatNumber());
+
+        sortList(seatCopy);
+        System.out.println("Printing sorted seatCopy");
+        printList(seatCopy);
+
 //        theatre.getSeats();
 //        if (theatre.reserveSeat("D12")) {
 //            System.out.println("Please Pay");
@@ -49,4 +67,18 @@ public class Main {
         System.out.println("==================================================================================================================================================================================================================================================================================================================================================================================================");
 
     }
+
+    public static void sortList(List<? extends Theatre.Seat> list) {
+        for (int i=0; i<list.size() -1; i++){
+            for (int j=i+1; j<list.size(); j++){
+                if (list.get(i).compareTo(list.get(j)) > 0) {
+                    Collections.swap(list, i, j);
+                }
+            }
+        }
+    }
 }
+
+
+// Collction Framework it defines several classes and interfaces which we can use to represent a group
+// of individual objects as a single entity
