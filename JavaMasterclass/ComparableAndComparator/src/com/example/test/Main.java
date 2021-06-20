@@ -24,16 +24,36 @@ public class Main {
         List<Theatre.Seat> reserveSeats = new ArrayList<>(theatre.getSeats());
         Collections.reverse(reserveSeats);
         printList(reserveSeats);
+
+
+        List<Theatre.Seat> priceSeats = new ArrayList<>(theatre.getSeats());
+        priceSeats.add(theatre.new Seat("B00", 13.00));
+        priceSeats.add(theatre.new Seat("A00", 13.00));
+        Collections.sort(priceSeats, Theatre.PRICE_ORDER);
+        printList(priceSeats);
     }
 
     public static void printList(List<Theatre.Seat> list) {
         for (Theatre.Seat seat : list) {
-            System.out.println(" " + seat.getSeatNumber() + " " + seat.getPrice());
+            System.out.println(" " + seat.getSeatNumber() + " $" + seat.getPrice());
         }
         System.out.println();
         System.out.println("=====================================================");
     }
 }
+
+
+
+// Now the collections framework includes classes that sort their elements,
+// In the previous chaapter we implemented the comparable interface, so that we could
+// experiment with the collections.sort and reverse methods.
+// seats variable are private.
+
+// Similar to a comparable the comparator interface defines a single method called
+// compare. Unlike comparable the objects to be sorted
+// do not have to imoplement comparator.
+// We could create a new class that implements that comparator interface.
+//
 
 
 

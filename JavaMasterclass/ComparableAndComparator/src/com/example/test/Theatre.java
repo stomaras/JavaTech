@@ -10,6 +10,23 @@ public class Theatre {
     private List<Seat> seats = new ArrayList<>();
 
 
+    // We need to check particular field
+    // We are gonna sort another in other words by the price
+    // of the tickets or
+    // it is an anonymous inner class implementing comparator
+    // and it is providing an implementation of the single compare nmethod.
+    static final Comparator<Seat> PRICE_ORDER = new Comparator<Seat>() {
+        @Override
+        public int compare(Seat seat1, Seat seat2) {
+            if (seat1.getPrice() < seat2.getPrice()) {
+                return -1;
+            } else if (seat1.getPrice() > seat2.getPrice()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    };
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -17,12 +34,15 @@ public class Theatre {
         int lastRow = 'A' + (numRows - 1);
         for (char row = 'A'; row <= lastRow; row++) {
             for(int seatNum = 1; seatNum<= seatsPerRow; seatNum++) {
+                // We are gonna charge a different price depending
+                // on what level.
                 // base price
                 double price = 12.00;
                 // Premium sort of seat
                 if ((row < 'D') && (seatNum >= 4 && seatNum <= 9)) {
                     price = 14.00;
                 } else if ((row > 'F') || (seatNum < 4 || seatNum > 9)) {
+                    // get a discount.
                     price = 7.00;
                 }
                 Seat seat = new Seat(row + String.format("%02d", seatNum), price);
@@ -71,9 +91,7 @@ public class Theatre {
         return seats;
     }
 
-
-
-    class Seat implements Comparable<Seat>{
+    public class Seat implements Comparable<Seat>{
         private String seatNumber;
         private double price;
         private boolean reserved = false;
@@ -121,4 +139,6 @@ public class Theatre {
         }
     }
 }
+
+// we will introduce one field called price.
 
