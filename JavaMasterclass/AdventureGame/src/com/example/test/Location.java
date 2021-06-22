@@ -6,12 +6,14 @@ import java.util.Map;
 public class Location {
     private int locationId;
     private String description;
+
     private Map<String, Integer> exits;
 
     public Location(int locationId, String description) {
         this.locationId = locationId;
         this.description = description;
         this.exits = new HashMap<String, Integer>();
+        // For ach location we add the ability to quit out
         this.exits.put("Q", 0);
     }
 
