@@ -150,5 +150,18 @@ public class Main {
             System.out.println("\t" + moon.getName());
         }
 
+        // We add another one Heavenly Body with orbital period 842
+        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
+        planets.add(pluto);
+
+        // The equals method has to be overriden our heavenly body class
+        for (HeavenlyBody planet : planets) {
+            System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
+        }
+
+        Object o = new Object();
+        o.equals(o);
+        "pluto".equals("");
+
     }
 }
