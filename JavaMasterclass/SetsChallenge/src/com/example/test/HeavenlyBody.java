@@ -51,7 +51,7 @@ public class HeavenlyBody {
     // and if we want to restrict planets to only have moons orbiting them we can override
     // the add satellite method in the planet sub class which i think is a much better
     // design.
-    public boolean addMoon(HeavenlyBody moon) {
+    public boolean addSatellite(HeavenlyBody moon) {
         return this.satellites.add(moon);
     }
 
