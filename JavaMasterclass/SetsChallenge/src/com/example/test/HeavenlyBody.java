@@ -11,12 +11,17 @@ public class HeavenlyBody {
 
     public final BodyTypes bodyType;
 
-    // Note a nested enum is automatically static so it's possible to refer to the enum
+    // Note a NESTED ENUM is AUTOMATICALLY STATIC so it's possible to refer to the enum
     // values without creating an instance of a heavenly body object.
+    // With enum we get an error at compile time if body type isn't valid so
+    //
     public enum BodyTypes {
+        STAR,
         PLANET,
         DWARF_PLANET,
-        MOON
+        MOON,
+        COMET,
+        ASTEROID
     }
 
     public HeavenlyBody(double orbitalPeriod, String name, BodyTypes bodyType) {
