@@ -6,13 +6,14 @@ package com.example.test;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class StockList {
     private final Map<String, StockItem> list;
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     // Next we want an add stock method and that's ultimately going to be used
@@ -71,11 +72,33 @@ public class StockList {
             StockItem stockItem = item.getValue();
             double itemValue = stockItem.getPrice() * stockItem.getQuantityStock();
 
-            s = s + stockItem + ". There are " + stockItem.getQuantityStock() + " in stock. Value of items";
-            s = s + itemValue + "\n";
+            s = s + stockItem + ". There are " + stockItem.getQuantityStock() + " in stock. Value of items ";
+            s = s + String.format("%.2f",itemValue) + "\n";
             totalCost += itemValue;
         }
 
         return s + "Total stock value " + totalCost;
     }
 }
+
+// We are going to set up a shopping basket because of course the real aim of this
+// example which i mentioned a few videos ago is to provide a shopping basket now
+// i've used a map for the stock list as you saw in the previous video and he reason
+// i did that was because this section is about the Java Collections Framework but the actual
+// stock list could be sored in a number of different ways and with the database.
+// propably been the most likely one you go for when customers come to buy the goods
+// we need some way to store the items they are buying and of course the quantity of each
+// one so we store the quantity in stock in a field of the stock item class
+//
+// In shopping basket though the program will have to keep track of the quantities
+// for each customer and their could be thousands of customers so having a field for
+// each one of the stock item classes is obviously not an option a map is designed to store
+// key value pairs so it makes a good candidate for associating a quantity with a stock item
+// and by creating a new shopping basket for each customer the program can track how many
+// of each item that the customers are actually buying now the stock item is the key
+// in the map in this situation and the quantity purchased is stored as the value
+// for the relevant key now i could have just used the items name as the key but then
+// the basket class will have to look up the items in the stock list to update
+// the stock count or get the price so by storing the actual items the basket
+// class can retrieve any information that it needs directly from the item which
+// obviously is pretty convenient.

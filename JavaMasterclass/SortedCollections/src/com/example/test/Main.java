@@ -2,6 +2,8 @@ package com.example.test;
 
 public class Main {
 
+    private static StockList stockList = new StockList();
+
     public static void main(String[] args) {
 	// write your code here
         // Now there are two other collection interfaces queue and dequeue
@@ -28,6 +30,29 @@ public class Main {
         // get with the example to see how a linked hash map can be useful and then
         // extend that to use a tree map I'm gonna start by creating a basic stock item class
         // StockItem class.
+        //
+        // Let's add some items on the stock and start selling them
+        StockItem temp = new StockItem("bread", 0.86, 100);
+        stockList.addStock(temp);
+
+        temp = new StockItem("Cake", 1.00, 200);
+        stockList.addStock(temp);
+
+        temp = new StockItem("Car", 12.50, 2);
+        stockList.addStock(temp);
+
+        temp = new StockItem("Phone", 96.99, 35);
+        stockList.addStock(temp);
+
+        // Random order even though we added them alphabetically the actual items are
+        // still stored at the moment in a pretty random order and the reason is because
+        // the stock list classes is using a HashMap to store the items.
+        // So in order to add the items in alphabetical order we are gonna use the
+        // LinkedHashMap instead
+
+        System.out.println(stockList);
+
+
 
     }
 }
