@@ -79,6 +79,14 @@ public class StockList {
 
         return s + "Total stock value " + totalCost;
     }
+
+    public Map<String, Double> PriceList() {
+        Map<String, Double> prices = new LinkedHashMap<>();
+        for (Map.Entry<String, StockItem> item : list.entrySet()) {
+            prices.put(item.getKey(), item.getValue().getPrice());
+        }
+        return Collections.unmodifiableMap(prices);
+    }
 }
 
 // We are going to set up a shopping basket because of course the real aim of this
@@ -102,3 +110,5 @@ public class StockList {
 // the stock count or get the price so by storing the actual items the basket
 // class can retrieve any information that it needs directly from the item which
 // obviously is pretty convenient.
+
+// Before we actually collect some stock

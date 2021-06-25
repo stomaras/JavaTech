@@ -1,5 +1,7 @@
 package com.example.test;
 
+import java.util.Map;
+
 public class Main {
 
     private static StockList stockList = new StockList();
@@ -32,13 +34,24 @@ public class Main {
         // StockItem class.
         //
         // Let's add some items on the stock and start selling them
+
+        /*
+            Adding items to a treeMap() results in far more work for your code
+            than using a HashMap, ThreeMap has to actually check through its list to
+             find the correct place to insert the new item, and of course does that
+             by comparing the items it finds with the item being added.
+             TreeMap is slower than other Map classes like HashMap and LinkedHashMap
+
+
+
+         */
         StockItem temp = new StockItem("bread", 0.86, 100);
         stockList.addStock(temp);
 
         temp = new StockItem("Cake", 1.00, 200);
         stockList.addStock(temp);
 
-        temp = new StockItem("Car", 12.50, 2);
+        temp = new StockItem("Car", 12.50, 3);
         stockList.addStock(temp);
 
         temp = new StockItem("Phone", 96.99, 35);
@@ -52,7 +65,36 @@ public class Main {
 
         System.out.println(stockList);
 
+        Basket timsBasket = new Basket("Tim");
+        sellItem(timsBasket, "Car", 2);
+        sellItem(timsBasket,"Cake", 10);
+        Basket chrisBasket = new Basket("Chris");
+        sellItem(chrisBasket, "Cake", 5);
+        sellItem(chrisBasket, "Car", 1);
+        System.out.println(chrisBasket);
+        System.out.println(timsBasket);
+
+        System.out.println(stockList);
+        for (Map.Entry<String, Double> price: stockList.PriceList().entrySet()) {
+            System.out.println(price.getKey() + " costs " + price.getValue());
+        }
+        
 
 
+
+    }
+
+    public static int sellItem(Basket basket, String item, int quantity) {
+        // retrieve the item from stock list
+        StockItem stockItem = stockList.get(item);
+        if (stockItem == null) {
+            System.out.println("We do not sell " + item);
+            return 0;
+        }
+        if (stockList.sellStock(item, quantity) != 0) {
+            basket.addToBasket(stockItem, quantity);
+            return quantity;
+        }
+        return 0;
     }
 }
