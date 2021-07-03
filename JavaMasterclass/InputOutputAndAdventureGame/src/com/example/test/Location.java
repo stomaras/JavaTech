@@ -21,7 +21,7 @@ public class Location {
 
 
 
-    public void  addExit(String direction, int location) {
+    protected void  addExit(String direction, int location) {
         exits.put(direction, location);
     }
 
