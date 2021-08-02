@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.eventmanagement.com/event" 
+	xmlns:tns="http://www.eventmanagement.com/event" 
+	xmlns:common="http://www.eventmanagement.com/common" 
+	elementFormDefault="qualified">
+	<include schemaLocation ="organizer.xsd"/>
+	<include schemaLocation ="venue.xsd"/>
+	<include schemaLocation ="participant.xsd"/>
+	<import schemaLocation="common.xsd" namespace="http://www.eventmanagement.com/common"></import>
+	<element name="event">
+		<complexType>
+			<sequence>
+				<element name="name" type="common:stringmax25"/>
+				<element name="description" type="common:stringmax200"/>
+				<element name="ticketPrice" type="decimal"/>
+				<element name="startTime" type="dateTime"/>
+				<element name="endTime" type="dateTime"/>
+				<element name="organizer" type="tns:organizer"/>
+				<element name="venue" type="tns:venue"/>
+				<!-- Any number of participants can participate in an event but the minimum number is 3 -->
+				<element name="participant" type="tns:participant" minOccurs="3" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	</element>
+	
+	
+	
+</schema>
