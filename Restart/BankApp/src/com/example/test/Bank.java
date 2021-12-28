@@ -59,7 +59,7 @@ public class Bank {
                 if (printTransactions){
                     System.out.println("Transactions");
                     ArrayList<Double> transactions = customer.getTransactions();
-                    for (int j = 0; j <= transactions.size(); j ++) {
+                    for (int j = 0; j < transactions.size(); j ++) {
                         System.out.println("["+(j+1)+"]" + "Amount " + transactions.get(j));
                     }
                 }

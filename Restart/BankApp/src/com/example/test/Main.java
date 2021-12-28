@@ -5,13 +5,18 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
        Bank bank = new Bank("Alpha Bank");
+
        bank.addBranch("Agrinio");
-       bank.addBranch("Karpenisi");
-       bank.addBranch("Lamia");
-       bank.addCustomer("Lamia","Spyros", 15.00);
-       bank.addCustomer("Lamia","Kostas", 15.00);
-       bank.addCustomer("Lamia","Chris",12.00);
-       bank.addCustomerTransaction("Lamia","Spyros",24.98);
-       bank.addCustomerTransaction("Lamia", "Ntinos", 54.65);
+
+       bank.addCustomer("Agrinio", "Tom", 15.00);
+       bank.addCustomer("Agrinio", "Chris", 15.00);
+       bank.addCustomer("Agrinio", "Kostas", 15.00);
+
+       bank.addCustomerTransaction("Agrinio", "Tom", 34.00);
+       bank.addCustomerTransaction("Agrinio", "Tom", 24.00);
+       bank.addCustomerTransaction("Agrinio", "Chris", 23.00);
+       System.out.println("\n");
+       bank.listCustomers("Agrinio", false);
+
     }
 }
