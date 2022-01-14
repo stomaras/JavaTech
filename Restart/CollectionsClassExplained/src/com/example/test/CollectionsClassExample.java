@@ -17,19 +17,22 @@ public class CollectionsClassExample {
         Project project = new Project();
         project.setProjectId(100);
         project.setProjectName("TMS");
+        project.setPrice(2000);
         projects.add(project);
 
         Project project2 = new Project();
         project2.setProjectId(200);
         project2.setProjectName("CMS");
+        project2.setPrice(1000);
         projects.add(project2);
 
         Project project3 = new Project();
         project3.setProjectId(50);
         project3.setProjectName("CMS");
+        project3.setPrice(4089);
         projects.add(project3);
 
-        Collections.sort(projects, Comparator.comparing(Project::getProjectName));
+        Collections.sort(projects, Comparator.comparing(Project::getPrice));
         printList(projects);
     }
 

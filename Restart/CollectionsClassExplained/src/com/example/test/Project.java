@@ -4,6 +4,7 @@ package com.example.test;
 public class Project implements Comparable<Project>{
     private int projectId;
     private String projectName;
+    private int price;
 
     public int getProjectId() {
         return projectId;
@@ -21,8 +22,16 @@ public class Project implements Comparable<Project>{
         this.projectName = projectName;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public int compareTo(Project project) {
-        return this.getProjectId() - project.getProjectId();
+        return this.getPrice() - project.getPrice();
     }
 }
