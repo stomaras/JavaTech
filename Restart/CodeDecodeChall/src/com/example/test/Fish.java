@@ -6,6 +6,10 @@ public class Fish extends Animals{
         System.out.println("fishes can swim");
     }
 
+    public void legs() {
+        System.out.println("Fish hs no legs");
+    }
+
 
 
 }
