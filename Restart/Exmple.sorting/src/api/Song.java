@@ -1,6 +1,6 @@
 package api;
 
-public class Song implements Comparable{
+public class Song implements Comparable<Song>{
     private String title;
     private String artist;
     private Integer year;
@@ -45,7 +45,7 @@ public class Song implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Song anotherSong) {
+        return this.getTitle().compareTo(anotherSong.getTitle());
     }
 }
