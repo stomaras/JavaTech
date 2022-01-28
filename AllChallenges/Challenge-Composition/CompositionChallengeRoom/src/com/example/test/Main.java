@@ -39,5 +39,21 @@ public class Main {
         getLamp() which returns an object of type Lamp, and makeBed() which prints a message that the
         bed is being made and also calls the make() method in the Bed class.
          */
+
+        Wall wall1 = new Wall("WEST");
+        Wall wall2 = new Wall("EAST");
+        Wall wall3 = new Wall("SOUTH");
+        Wall wall4 = new Wall("NORTH");
+
+        Ceiling ceiling = new Ceiling(12, 55);
+
+        Bed bed = new Bed("Modern", 4, 3, 2, 1);
+
+        Lamp lamp = new Lamp("Classic", false, 75);
+
+        BedRoom bedRoom = new BedRoom("Spyros Tomaras", wall1, wall2, wall3, wall4, ceiling, bed, lamp );
+        bedRoom.makeBed();
+
+        bedRoom.getLamp().turnOn();
     }
 }
