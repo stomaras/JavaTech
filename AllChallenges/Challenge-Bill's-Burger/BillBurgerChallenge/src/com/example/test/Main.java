@@ -48,5 +48,14 @@ public class Main {
         method created in the Hamburger class should be overriden to generate a message appropriate to the type of
         burger along with any addons.The method also returns the total price of the healthy burger of type double.
          */
+
+        Hamburger hamburger = new Hamburger("Base", "beef", "Lobster Roll", 5.00);
+        System.out.println(hamburger.getPrice());
+        System.out.println(hamburger.getAddition1Name());
+        hamburger.addHamburgerAddition1("Bacon", 0.75);
+        System.out.println(hamburger.getAddition1Name());
+        hamburger.addHamburgerAddition2("chips", 1.00);
+        System.out.println(hamburger.getPrice());
+
     }
 }
