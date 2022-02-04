@@ -50,12 +50,17 @@ public class Main {
          */
 
         Hamburger hamburger = new Hamburger("Base", "beef", "Lobster Roll", 5.00);
-        System.out.println(hamburger.getPrice());
-        System.out.println(hamburger.getAddition1Name());
-        hamburger.addHamburgerAddition1("Bacon", 0.75);
-        System.out.println(hamburger.getAddition1Name());
-        hamburger.addHamburgerAddition2("chips", 1.00);
-        System.out.println(hamburger.getPrice());
+        System.out.println(hamburger.itemizeHamburger());
+        hamburger.addHamburgerAddition1("Bacon", 2.34);
+        hamburger.addHamburgerAddition2("Chips", 1.10);
+        hamburger.addHamburgerAddition3("Tomato", 0.90);
+        hamburger.addHamburgerAddition4("Ketchup", 1.00);
+        System.out.println(hamburger.itemizeHamburger());
+
+        
+
+
+
 
     }
 }
