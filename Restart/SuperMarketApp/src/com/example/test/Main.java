@@ -1,5 +1,7 @@
 package com.example.test;
 
+import java.util.Map;
+
 public class Main {
 
     private static StockList marketList = new StockList();
@@ -30,24 +32,44 @@ public class Main {
         StockItem cigarettes = new StockItem("cigarettes", 2.50, 1000);
         marketList.addStock(cigarettes);
 
-        Basket tom = new Basket("Tom");
-        tom.addToBasket(fruit1, 10);
-        tom.addToBasket(fruit3, 4);
-        tom.addToBasket(cups, 3);
+        marketList.Items().get("cigarettes").adjustStock(2000);
+        marketList.get("cigarettes").adjustStock(-999);
+        System.out.println(marketList);
 
-        Basket chris = new Basket("Chris");
-        chris.addToBasket(fruit2, 8);
-        chris.addToBasket(pencils, 3);
-        chris.addToBasket(chocholates, 5);
-        chris.addToBasket(cigarettes, 2);
+        for (String s : marketList.Items().keySet()) {
+            System.out.println(s);
+        }
 
-        Basket kostas = new Basket("Kostas");
-        kostas.addToBasket(chocholates, 10);
+        System.out.println("Price of products: \n");
+        for (Map.Entry<String, Double> price : marketList.priceList().entrySet()) {
+            System.out.println(price.getKey() + " costs: " + price.getValue());
+        }
 
-        System.out.println(marketList.toString());
-        System.out.println(tom.toString());
-        System.out.println(chris.toString());
-        System.out.println(kostas.toString());
 
+
+        Basket tomsBasket = new Basket("Tom");
+        sellItem(tomsBasket, "cigarettes", 5);
+        System.out.println(tomsBasket);
+
+        sellItem(tomsBasket, "pencil", 2);
+        sellItem(tomsBasket, "cup", 5);
+        System.out.println(tomsBasket);
+
+        System.out.println(marketList);
+
+    }
+
+    public static int sellItem(Basket basket, String item, int quantity) {
+        // retrieve the item from the super market list
+        StockItem stockItem = marketList.get(item);
+        if (stockItem == null) {
+            System.out.println("We don't sell " + item);
+            return 0;
+        }
+        if (marketList.sellStock(item, quantity) != -1) {
+            basket.addToBasket(stockItem, quantity);
+            return quantity;
+        }
+        return 0;
     }
 }

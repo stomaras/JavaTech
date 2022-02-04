@@ -42,6 +42,14 @@ public class StockList {
         return Collections.unmodifiableMap(marketList);
     }
 
+    public Map<String, Double> priceList() {
+        Map<String, Double> prices = new LinkedHashMap<>();
+        for (Map.Entry<String, StockItem> item : marketList.entrySet()){
+            prices.put(item.getKey(), item.getValue().getPrice());
+        }
+        return Collections.unmodifiableMap(prices);
+    }
+
     @Override
     public String toString() {
         String s = "SuperMarket List: \n\n";

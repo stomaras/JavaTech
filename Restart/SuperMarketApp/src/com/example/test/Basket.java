@@ -1,9 +1,6 @@
 package com.example.test;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Basket {
 
@@ -12,7 +9,7 @@ public class Basket {
 
     public Basket(String name) {
         this.name = name;
-        this.basketList = new LinkedHashMap<>();
+        this.basketList = new TreeMap<>();
     }
 
     public String getName() {
@@ -39,7 +36,7 @@ public class Basket {
     @Override
     public String toString() {
         double totalCost = 0.0;
-        String s = "Basket List:" + this.name + "\n";
+        String s = "Basket List: " + this.name + " contains " + basketList.size() + ((basketList.size() == 1) ? " type item" : " types items ") +"\n";
         for (Map.Entry<StockItem, Integer> item : basketList.entrySet()){
             StockItem basketItem = item.getKey();
             int quantity = item.getValue();

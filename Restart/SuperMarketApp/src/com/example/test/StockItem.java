@@ -2,7 +2,7 @@ package com.example.test;
 
 import java.util.Objects;
 
-public class StockItem {
+public class StockItem implements Comparable<StockItem> {
 
     private final String name;
     private double price;
@@ -70,5 +70,19 @@ public class StockItem {
     @Override
     public String toString() {
         return name + ", price :" + price + ", quantity :" + quantityInStock;
+    }
+
+    @Override
+    public int compareTo(StockItem o) {
+        System.out.println("Entering StockItem.compareTo");
+        if (this == o) {
+            return 0;
+        }
+
+        if (o != null) {
+            return this.name.compareTo(o.getName());
+        }
+
+        throw new NullPointerException();
     }
 }
