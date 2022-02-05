@@ -57,7 +57,16 @@ public class Main {
         hamburger.addHamburgerAddition4("Ketchup", 1.00);
         System.out.println(hamburger.itemizeHamburger());
 
-        
+        HealthyBurger healthyBurger = new HealthyBurger("pork", 4.00);
+        System.out.println(healthyBurger.getPrice());
+        healthyBurger.addHealthyAddition1("lettuce", 0.70);
+        healthyBurger.addHealthyAddition2("tomatoe", 0.50);
+        System.out.println(healthyBurger.itemizeHamburger());
+
+        DeluxeBurger db = new DeluxeBurger();
+        System.out.println(db.itemizeHamburger());
+
+
 
 
 
