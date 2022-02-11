@@ -7,9 +7,15 @@ import java.util.Map;
 public class StockList {
 
     private Map<String, StockItem> marketList;
+    private int TotalreservedQuantities;
 
     public StockList() {
         this.marketList = new HashMap<>();
+        this.TotalreservedQuantities = 0;
+    }
+
+    public int getTotalreservedQuantities() {
+        return TotalreservedQuantities;
     }
 
     public int addStock(StockItem item) {
@@ -25,22 +31,32 @@ public class StockList {
     }
 
     public int reserveStock(String item, int quantity){
-        StockItem item1 = marketList.get(item);
+        StockItem item1 = marketList.get(item); // retrieve the stockItem from the marketList
         if (item1 != null){
             if (quantity > 0){
-                item1.reserveStock(quantity);
+                item1.reserveStock(quantity); // then call the item's reserve stock
                 return quantity;
             }
         }
         return -1;
     }
 
+    public int unreserveStock(String item, int quantity){
+        StockItem inStock = marketList.get(item);
+        if (inStock != null && quantity >0){
+            return inStock.unreserveStock(quantity);
+        }
+        return -1;
+    }
+
+    /*
+    Instead of adjusting the item stock level directly, it just calls the finalized stock method.
+     */
     public int sellStock(String item, int quantity){
-        StockItem itemSell = marketList.get(item);
+        StockItem itemSell = marketList.get(item); // check if the item exists in the list
         if (itemSell != null){
-            if (quantity > 0 && (itemSell.availableStock() > quantity)){
-                itemSell.adjustStock(-quantity);
-                return itemSell.availableStock();
+            if (quantity > 0){
+                return itemSell.finalise(quantity); // finalise method returns the quantity sold or zero if there weren't enough to be sold
             }
         }
         return -1;

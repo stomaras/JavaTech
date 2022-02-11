@@ -27,6 +27,14 @@ public class StockItem implements Comparable<StockItem>{
         return price;
     }
 
+    public int getQuantityInStock() {
+        return quantityInStock;
+    }
+
+    public int getReserved() {
+        return reserved;
+    }
+
     public int availableStock() {
         return quantityInStock - reserved;
     }
@@ -66,7 +74,7 @@ public class StockItem implements Comparable<StockItem>{
     }
 
     public int finalise(int quantity){
-        if ((quantity <= availableStock()) && (quantity <= reserved)){
+        if (quantity <= reserved){
             quantityInStock -= quantity;
             reserved -= quantity;
             return quantity;
@@ -102,6 +110,6 @@ public class StockItem implements Comparable<StockItem>{
 
     @Override
     public String toString() {
-        return name + ", price=" + price + ", quantityInStock=" + quantityInStock + "reserved" + reserved + "\n";
+        return "item : " + name + ", price = " + price + "$, quantityInStock = " + quantityInStock + ", reserved = " + reserved + " stocks\n";
     }
 }

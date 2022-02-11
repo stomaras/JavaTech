@@ -40,17 +40,17 @@ public class Basket {
 
     @Override
     public String toString() {
-        String s = " Basket of : " + this.name + "\n";
+        String s = "Basket of : " + this.name + "\n";
         double totalCost = 0.0;
         for (Map.Entry<StockItem, Integer> entry : basketList.entrySet()) {
             StockItem item = entry.getKey();
             int itemQuantity = entry.getValue();
             double itemValue = item.getPrice() * itemQuantity;
             totalCost += itemValue;
-            s = s + " product name : " + item.getName() + " and quantity : " + itemQuantity + " with total item cost : " + String.format("%.2f", itemValue) + "$";
+            s = s + "product name : " + item.getName() + " and quantity : " + itemQuantity + " with total item cost : " + String.format("%.2f", itemValue) + "$";
             s = s + "\n";
         }
-        s = s + " Total cost of basket " + this.name + " : " + totalCost + "$";
+        s = s + "Total cost of basket " + this.name + " : " + totalCost + "$";
         return s;
     }
 }
