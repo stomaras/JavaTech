@@ -23,7 +23,7 @@ public class StockList {
             marketList.put(item.getName(), item);
             return item.getQuantityInStock();
         }
-        return 0;
+        return -1;
     }
 
     public int reserveStock(String item, int quantity) {
