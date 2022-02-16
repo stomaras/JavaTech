@@ -69,7 +69,7 @@ public class StockList {
             totalWealth += item.getPrice() * item.availableQuantity();
             s = s + " Item with name: " + item.getName() + " ,with price: " + item.getPrice() + "$";
             s = s + " ,with available quantity in stock: " + item.availableQuantity();
-            s = s + " ,with reserved quantity: " + item.getReservedQuantity() + "\n";
+            s = s + " ,with reserved quantity: " + item.getReservedQuantity() + " items." + "\n";
             System.out.println("\n");
         }
         s = s + " Total Wealth: " + totalWealth + "$";

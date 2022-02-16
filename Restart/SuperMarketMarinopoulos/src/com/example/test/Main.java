@@ -30,6 +30,13 @@ public class Main {
         sellItems(basketList, "oranges", 20);
         System.out.println(marketList);
         System.out.println(basketList);
+        cancelItems(basketList, "oranges", 10);
+        System.out.println(marketList);
+        System.out.println(basketList);
+
+        checkOut(basketList);
+        System.out.println(marketList);
+        System.out.println(basketList);
 
 
 
@@ -46,6 +53,26 @@ public class Main {
             }
         }
         return -1;
+    }
+
+    public static int cancelItems(BasketList basketList, String item, int quantity){
+        if (item != null){
+            if (marketList.unreserveStock(item, quantity) < 0) {
+                System.out.println("We don't have: " + item);
+            } else {
+                StockItem item1 = marketList.key(item);
+                basketList.removeFromBasket(item1, quantity);
+                return quantity;
+            }
+        }
+        return -1;
+    }
+
+    public static void checkOut(BasketList basketList){
+        for (Map.Entry<StockItem, Integer> entry : basketList.Items().entrySet()){
+            marketList.sellStock(entry.getKey().getName(), entry.getValue());
+        }
+        basketList.clear();
     }
 
 
