@@ -6,38 +6,38 @@ import java.util.Map;
 
 public class StockList {
 
-    private Map<String, StockItem> basketList;
+    private Map<String, StockItem> marketList;
 
     public StockList() {
-        this.basketList = new HashMap<>();
+        this.marketList = new HashMap<>();
     }
 
     public int addStockItem(StockItem item){
         if (item != null){
-            StockItem inStock = basketList.getOrDefault(item.getName(), null);
+            StockItem inStock = marketList.getOrDefault(item.getName(), null);
             if (inStock != null){
                 if(inStock.getPrice() == item.getPrice()) {
                     item.adjustStock(inStock.getQuantityInStock());
                 }
             }
-            basketList.put(item.getName(), item);
+            marketList.put(item.getName(), item);
             return item.getQuantityInStock();
         }
         return 0;
     }
 
     public int reserveStock(String item, int quantity) {
-        StockItem inStock = basketList.getOrDefault(item, null);
+        StockItem inStock = marketList.getOrDefault(item, null);
         if (inStock != null){
             inStock.reservedQuantity(quantity);
-            basketList.put(inStock.getName(), inStock);
+            marketList.put(inStock.getName(), inStock);
             return inStock.getReservedQuantity();
         }
         return -1;
     }
 
     public int unreserveStock(String item, int quantity) {
-        StockItem inStock = basketList.getOrDefault(item, null);
+        StockItem inStock = marketList.getOrDefault(item, null);
         if (inStock != null && (inStock.getReservedQuantity() > 0)) {
             return inStock.unreservedQuantity(quantity);
         }
@@ -45,7 +45,7 @@ public class StockList {
     }
 
     public int sellStock(String name, int quantity){
-        StockItem item = basketList.getOrDefault(name, null);
+        StockItem item = marketList.getOrDefault(name, null);
         if ((item != null) && (quantity > 0)){
             return item.finalise(quantity);
         }
@@ -53,22 +53,22 @@ public class StockList {
     }
 
     public StockItem key(String key){
-        return basketList.get(key);
+        return marketList.get(key);
     }
 
     public Map<String, StockItem> Items(){
-        return Collections.unmodifiableMap(basketList);
+        return Collections.unmodifiableMap(marketList);
     }
 
     @Override
     public String toString() {
         String s = " Market List: \n";
         double totalWealth = 0.0;
-        for (Map.Entry<String, StockItem> itemEntry : basketList.entrySet()){
+        for (Map.Entry<String, StockItem> itemEntry : marketList.entrySet()){
             StockItem item = itemEntry.getValue();
             totalWealth += item.getPrice() * item.availableQuantity();
             s = s + " Item with name: " + item.getName() + " ,with price: " + item.getPrice() + "$";
-            s = s + " ,with quantity in stock: " + item.getQuantityInStock();
+            s = s + " ,with available quantity in stock: " + item.availableQuantity();
             s = s + " ,with reserved quantity: " + item.getReservedQuantity() + "\n";
             System.out.println("\n");
         }
