@@ -1,10 +1,5 @@
 package com.example.test;
-
-public class Main {
-
-    public static void main(String[] args) {
-	// write your code here
-        /*
+    /*
         Create a program that implements a simple mobile phone with the following capabilities
 
         1. Implement the master class MobilePhone, that holds the ArrayList of Contacts, with the following
@@ -51,5 +46,37 @@ public class Main {
         NOTE: All methods should be defined as public(except for the two findContact() methods which are private)
 
          */
+
+
+public class Main {
+
+    private static MobilePhone mobilePhone = new MobilePhone("6973057110");
+
+    public static void main(String[] args) {
+	// write your code here
+        Contact contact = new Contact("Tom", "698494922");
+        System.out.println(contact);
+        System.out.println(mobilePhone.addNewContact(contact));
+
+        contact = new Contact("Tom", "697494922");
+        System.out.println(contact);
+        System.out.println(mobilePhone.addNewContact(contact));
+
+        contact = new Contact("Chris", "136789128937");
+        System.out.println(contact);
+        System.out.println(mobilePhone.addNewContact(contact));
+
+        contact = new Contact("Chris", "136789128937");
+        System.out.println(contact);
+        System.out.println(mobilePhone.addNewContact(contact));
+
+        contact = new Contact("Kostas", "6980081237");
+        System.out.println(contact);
+        System.out.println(mobilePhone.addNewContact(contact));
+        System.out.println("\n");
+
+        mobilePhone.printContacts();
+
+
     }
 }

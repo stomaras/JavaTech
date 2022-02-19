@@ -1,38 +1,22 @@
-package com.example.test.com.deitel.jhtp6.ch14;
+package com.deitel.jhtp6.ch14;
+// A class that represents one record of information.
 
-public class AccountRecord {
+public class AcountRecord {
 
     private int account;
     private String firstName;
     private String lastName;
     private double balance;
 
-    // no - argument constructor calls other constructor with default values
-    public AccountRecord() {
+    public AcountRecord(){
         this(0, "", "", 0.0);
     }
-
-    public AccountRecord(int account, String firstName, String lastName, double balance) {
-        setAccount(account);
+    // initialize a record
+    public AcountRecord(int accountNumber, String firstName, String lastName, double balance) {
+        setAccount(accountNumber);
         setFirstName(firstName);
         setLastName(lastName);
         setBalance(balance);
-    }
-
-    public int getAccount() {
-        return account;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public double getBalance() {
-        return balance;
     }
 
     public void setAccount(int account) {
@@ -49,5 +33,21 @@ public class AccountRecord {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public int getAccount() {
+        return account;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }
