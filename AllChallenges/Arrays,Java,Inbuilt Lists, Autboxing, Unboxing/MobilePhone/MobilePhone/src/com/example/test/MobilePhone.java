@@ -22,6 +22,24 @@ public class MobilePhone {
         return true;
     }
 
+    public boolean updateContact(Contact oldContact, Contact newContact){
+        int index = this.myContacts.indexOf(oldContact);
+        if (index == -1){
+            return false;
+        }
+        this.myContacts.set(index, newContact);
+        return true;
+    }
+
+    public boolean removeContact(Contact removeContact) {
+        int index = this.myContacts.indexOf(removeContact);
+        if (index == -1) {
+            return false;
+        }
+        this.myContacts.remove(index);
+        return true;
+    }
+
     private int findContact(Contact searchContact) {
         for (int i = 0; i < this.myContacts.size(); i++){
             Contact currentContact = this.myContacts.get(i);

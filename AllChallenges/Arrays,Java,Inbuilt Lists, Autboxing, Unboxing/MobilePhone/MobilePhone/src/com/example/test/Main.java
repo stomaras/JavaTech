@@ -74,7 +74,20 @@ public class Main {
         System.out.println(contact);
         System.out.println(mobilePhone.addNewContact(contact));
         System.out.println("\n");
+        Contact sani = Contact.createContact("Sani", "6834903489");
+        System.out.println(mobilePhone.updateContact(contact, sani));
 
+        contact = Contact.createContact("Tsagos", "6974397540");
+        mobilePhone.addNewContact(contact);
+
+        mobilePhone.printContacts();
+
+        mobilePhone.removeContact(contact);
+
+        mobilePhone.printContacts();
+
+        Contact pasio = Contact.createContact("Pasio", "6875903045");
+        mobilePhone.updateContact(sani, pasio);
         mobilePhone.printContacts();
 
 
