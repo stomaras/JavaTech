@@ -56,5 +56,24 @@ public class Main {
          */
 
 
+
+
+        Branch branch = new Branch("Agrinio");
+
+        branch.newCustomer("Tom", 3.00);
+        branch.addCustomerTransaction("Tom", 700.00);
+        branch.newCustomer("Chris", 4.00);
+        branch.newCustomer("Kostas", 45.00);
+        branch.addCustomerTransaction("Kostas", 43.08);
+        branch.addCustomerTransaction("Kostas", 50.00);
+        System.out.println(branch);
+
+
+
+
+
+
+
+
     }
 }
