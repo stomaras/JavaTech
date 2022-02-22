@@ -20,36 +20,30 @@ public class Branch {
         return new ArrayList<>();
     }
 
-    public boolean newCustomer(String nameOfCustomer, double initialAmount){
-        Customer newCustomer = new Customer(nameOfCustomer, initialAmount);
-        for (int i = 0; i < this.customers.size(); i++){
-            Customer customer = this.customers.get(i);
-            if (customer.equals(newCustomer)) {
-                return false;
-            }
+    public boolean newCustomer(String nameOfCustomer, double initialTransaction){
+        Customer newCustomer = findCustomer(nameOfCustomer);
+        if (newCustomer == null){
+            this.customers.add(new Customer(nameOfCustomer, initialTransaction));
+            return true;
         }
-        this.customers.add(newCustomer);
-        return true;
+        return false;
     }
 
     public boolean addCustomerTransaction(String nameOfCustomer, double transaction){
-        Customer newCustomer = new Customer(nameOfCustomer, transaction);
-        for (int i = 0; i < this.customers.size(); i++){
-            Customer customer = this.customers.get(i);
-            if (customer.equals(newCustomer)) {
-               this.customers.get(i).addTransaction(transaction);
-               return true;
-            }
+        Customer newCustomer = findCustomer(nameOfCustomer);
+        if (newCustomer != null){
+            newCustomer.addTransaction(transaction);
+            return true;
         }
         return false;
     }
 
     private Customer findCustomer(String nameOfCustomer) {
-        Customer newCustomer = new Customer(nameOfCustomer, 0);
         for (int i = 0; i < this.customers.size(); i++){
-            Customer customer = this.customers.get(i);
-            if (customer.equals(newCustomer)){
-                return customer;
+            Customer checkedCustomer = this.customers.get(i);
+            String customerName = checkedCustomer.getName();
+            if (customerName.equals(nameOfCustomer)){
+                return checkedCustomer;
             }
         }
         return null;

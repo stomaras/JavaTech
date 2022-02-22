@@ -34,27 +34,6 @@ public class Customer {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Customer customer = (Customer) o;
-        if (customer.getName().equals(this.getName())){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    public int hashCode() {
-        return this.getName().hashCode() + 50;
-    }
-
-    @Override
     public String toString() {
         String s = "Transactions of customer " + name + "\n";
         double totalTransactionsAmount = 0.0;
