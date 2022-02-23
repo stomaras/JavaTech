@@ -16,7 +16,7 @@ public class Main {
        bank.addCustomerTransaction("Agrinio", "Tom", 24.00);
        bank.addCustomerTransaction("Agrinio", "Chris", 23.00);
        System.out.println("\n");
-       bank.listCustomers("Agrinio", false);
+       bank.listCustomers("Agrinio", true);
 
     }
 }
