@@ -2,7 +2,7 @@ package com.example.test;
 
 import java.util.Objects;
 
-public class People {
+public class People implements Comparable<People>{
     private String firstName;
     private String lastName;
     private int height;
@@ -37,6 +37,11 @@ public class People {
         return color;
     }
 
+    @Override
+    public int compareTo(People people) {
+        return Integer.compare(getHeight(), people.getHeight());
+    }
+
     public boolean addSex(String sex){
         if (sex == "Male" || sex.equals("female") || sex.equals("trans")){
             this.sex = sex;
@@ -67,10 +72,23 @@ public class People {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
         People people = (People) o;
-        return height == people.height && Objects.equals(firstName, people.firstName) && Objects.equals(lastName, people.lastName) && Objects.equals(color, people.color);
+        if (people.getFirstName().equals(this.getFirstName()) && (people.getLastName().equals(this.getLastName()))){
+            if (people.getHeight() == this.getHeight()){
+                if (people.getSex() == this.getSex()){
+                    if (people.getColor() == this.getColor()){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     @Override
@@ -80,7 +98,7 @@ public class People {
 
     @Override
     public String toString() {
-        return "People with  first name : " + firstName + ", with last name: " + lastName + ", with height: " + height + "cm, with color: " + color;
+        return "People with  first name : " + firstName + ", with last name: " + lastName + ", with height: " + height + "cm, with color: " + color + "\n";
     }
 
 
