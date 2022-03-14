@@ -15,5 +15,13 @@ public class case4 {
 
         String s5 = "You cannot" + " change Me";
         System.out.println(s4 == s5);
+
+        String s6 = "You cannot";
+        String s7 = s6 + "change me";
+        System.out.println(s4 == s7);
+
+        final String s8 = "You cannot";
+        String s9 = s8 + "change me";
+        System.out.println(s4 == s9);
     }
 }
