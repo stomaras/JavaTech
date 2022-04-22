@@ -14,8 +14,7 @@ public class RegexTestHarness {
 
             System.out.println("Enter your regex:\n");
             String pat = scanner.next();
-            Pattern pattern =
-                    Pattern.compile(pat);
+            Pattern pattern = Pattern.compile(pat);
 
             System.out.println("Enter an input string to search: \n");
             String inputString = scanner.next();
@@ -23,7 +22,9 @@ public class RegexTestHarness {
 
             boolean found = false;
             while (matcher.find()) {
-                System.out.println("I found the text %s In position %d Ending in %d"+ matcher.group() + matcher.start() + matcher.end());
+                System.out.printf("I found the text %s ", matcher.group());
+                System.out.printf("starting at %d ", matcher.start());
+                System.out.printf("and ending at index %d ", matcher.end());
                 found = true;
             }
             if(!found){
